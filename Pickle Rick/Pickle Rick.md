@@ -5,8 +5,8 @@
 
 Welcome to my first ever CTF Writeup! I am writing this writeup to both help develop myself and my skills, whilst hopefully guiding others who are new to the field of Web Application Penetration Testing.
 Please forgive any unusual styling or writing choices I make, as I develop my skillset! 
-Without further ado, lets dive in the Pickle Rick room by TryHackMe
-For reference, I have already completed this THM Room, and I will be re-creating and documenting my steps.
+Without further ado, lets dive in the Pickle Rick room by TryHackMe! 
+(For reference, I have already completed this THM Room, and I will be re-creating and documenting my steps.)
 
 In this room, we are given very little context, only:
 

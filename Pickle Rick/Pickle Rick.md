@@ -1,2 +1,2 @@
 # Pickle Rick - THM Room
-### https://tryhackme.com/room/picklerick
+### Link to Room: [Pickle Rick - THM](https://tryhackme.com/room/picklerick)

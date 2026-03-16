@@ -119,7 +119,7 @@ Going back to our Gobuster results, we have the file /clue.txt, let's check that
 
 Looks like we are going to need to do some more digging around the file directory to see what else we can find here.
 
-Back in the Command Panel, by using pwd, I can see that we are in the /var/www/html directory, I want to see what users I can discover on the machine, by using ls -la /home, I should be able to print the home directory to see who is in there.
+Back in the Command Panel, by using ```pwd```, I can see that we are in the ```/var/www/html directory```, I want to see what users I can discover on the machine, by using ```ls -la /home```, I should be able to print the home directory to see who is in there.
 Note - using the flags ```-la``` allows us to add two flags to the ```ls``` command, ```-l``` for long format which shows us file permissions, owner, and group of the file owner, file size, and the “Last Modified” date.
 This shows us there is a “rick” user and an “ubuntu” user.
 

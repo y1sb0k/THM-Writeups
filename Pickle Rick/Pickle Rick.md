@@ -19,7 +19,7 @@ From this small intro, we know three things;
 
 ## <ins>Flag One:</ins>
 
-Let's start with some initial Enumeration.
+Let's start with some initial enumeration.
 
 Using the Nmap will allow us to take a look at the server, specifically identifying ports and services it may be running that may reveal potential vulnerabilities. I have used the command:
 

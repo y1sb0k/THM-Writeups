@@ -17,7 +17,7 @@ The target IP - ```10.130.170.42``` (Note that this will be different for you fo
 We are attacking a web server
 There are 3 flags to find.
 
-<ins> ##Flag One:</ins>
+## <ins>Flag One:</ins>
 
 Let's start with some initial Enumeration.
 

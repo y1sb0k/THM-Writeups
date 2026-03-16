@@ -166,4 +166,5 @@ I hope you enjoyed my first ever writeup as much as I have enjoyed writing it!
 
 Check out my website for future writeups - https://callumgibl.in/
 
--y1sb0k
+Happy Hacking!
+- Callum/y1sb0k

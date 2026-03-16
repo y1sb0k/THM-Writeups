@@ -13,7 +13,7 @@ In this room, we are given very little context, only:
 This Rick and Morty-themed challenge requires you to exploit a web server and find three ingredients to help Rick make his potion and transform himself back into a human from a pickle.
 
 From this small intro, we know three things;
-The target IP - ```10.130.170.42``` (Note that this will be different for you for your own Machine.
+The target IP - ```10.130.170.42``` *-Note that this will be different for you for your own machine.*
 We are attacking a web server
 There are 3 flags to find.
 

@@ -1,6 +1,8 @@
 # 🥒 Pickle Rick - TryHackMe Room
 ### 🔗 Link to Room: [Pickle Rick - THM](https://tryhackme.com/room/picklerick)
 
+<ins> ##Intro:</ins>
+
 Welcome to my first ever CTF Writeup! I am writing this writeup to both help develop myself and my skills, whilst hopefully guiding others who are new to the field of Web Application Penetration Testing.
 Please forgive any unusual styling or writing choices I make, as I develop my skillset! 
 Without further ado, lets dive in the Pickle Rick room by TryHackMe
@@ -10,12 +12,12 @@ In this room, we are given very little context, only:
 
 This Rick and Morty-themed challenge requires you to exploit a web server and find three ingredients to help Rick make his potion and transform himself back into a human from a pickle.
 
-Deploy the virtual machine on this task and explore the web application: 10.130.170.42
-
 From this small intro, we know three things;
 The target IP - ```10.130.170.42``` (Note that this will be different for you for your own Machine.
 We are attacking a web server
 There are 3 flags to find.
+
+<ins> ##Flag One:</ins>
 
 Let's start with some initial Enumeration.
 
@@ -128,6 +130,8 @@ Nice! We have the first flag!
 
 ## Flag 1: mr. meeseek hair
 
+<ins> ##Flag Two:</ins>
+
 Going back to our Gobuster results, we have the file /clue.txt, let's check that out. 
 
 ![Screenshot of clue file](https://github.com/y1sb0k/THM-Writeups/blob/main/Pickle%20Rick/assets/clue.png)
@@ -159,6 +163,8 @@ It worked! Tah-dah!! We finally have our second flag.
 ![Screenshot of second flag](https://github.com/y1sb0k/THM-Writeups/blob/main/Pickle%20Rick/assets/flag2.png)
 
 ## Flag 2: 1 jerry tear
+
+<ins> ##Flag Three:</ins>
 
 ***You may notice a change of IP address at this point to 10.130.158.202 - writing and hacking simultaneously is hard and slow work!***
 

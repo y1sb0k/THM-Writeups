@@ -21,7 +21,7 @@ Let's start with some initial Enumeration.
 
 Using the Nmap will allow us to take a look at the server, specifically identifying ports and services it may be running that may reveal potential vulnerabilities. I have used the command:
 
-nmap -A -v 10.130.170.42
+```nmap -A -v 10.130.170.42```
 
 Here the -A flag is an Aggressive Scan, which accumulates multiple nmap flags into one argument, namely; -sV (Services & Version Detection), -o (OS Detection), -sC (Default Script Scanning) and a traceroute function. I have also used the -v (Verbose flag).
 
@@ -38,7 +38,7 @@ However, lets take a look at the source code of the page.
 Right there in the html source code, we have a Username, commented out so it does not display on the webpage, website developers/administrators often use this as a weak way to hide credentials or details for other admins or devs for future reference.
 
 Source Code:
-
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,7 +76,7 @@ Source Code:
 
 </body>
 </html>
-
+```
 
 
 Username: R1ckRul3s

@@ -111,7 +111,7 @@ Lets check out that /login.php website to see if we can use Wubbalubbadubdub as 
 
 Nice, it looks like we are in! The page displays a “Rick Portal”, with a command panel, along with some other links along the top menu. Looking through these links, we are greeted by the /denied.php directory, and the message “Only the REAL rick can view this page..”, perhaps there is some privilege escalation required to an administrator account to view these pages.
 
-Details for login:
+**Details for login:**
 ```
 Username: R1ckRul3s
 Password: Wubbalubbadubdub
@@ -136,7 +136,7 @@ Nice! We have the first flag!
 
 #Flag 1: mr. meeseek hair
 
-##<ins>Flag Two:</ins>
+## <ins>Flag Two:</ins>
 
 Going back to our Gobuster results, we have the file /clue.txt, let's check that out. 
 
@@ -170,7 +170,7 @@ It worked! Tah-dah!! We finally have our second flag.
 
 #Flag 2: 1 jerry tear
 
-##<ins>Flag Three:</ins>
+## <ins>Flag Three:</ins>
 
 ***You may notice a change of IP address at this point to 10.130.158.202 - writing and hacking simultaneously is hard and slow work!***
 
@@ -192,7 +192,7 @@ And there we have our third flag!
 
 #Flag 3: fleeb juice
 
-##<ins>Summary:</ins>
+## <ins>Summary:</ins>
 
 To summarise, our flags are:
 ```

@@ -160,6 +160,13 @@ And there we have our third flag!
 
 Flag 3: fleeb juice
 
+To summarise, our flags are:
+```
+1. mr. meeseek hair
+2. 1 jerry tear
+3. fleeb juice
+```
+
 We have effectively obtained the ingredients list to turn Rick back into a human!
 
 I hope you enjoyed my first ever writeup as much as I have enjoyed writing it!

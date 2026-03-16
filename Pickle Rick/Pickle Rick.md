@@ -25,6 +25,7 @@ Using the Nmap will allow us to take a look at the server, specifically identify
 
 Here the ```-A``` flag is an Aggressive Scan, which accumulates multiple nmap flags into one argument, namely; ```-sV``` (Services & Version Detection), ```-o``` (OS Detection), ```-sC``` (Default Script Scanning) and a traceroute function. I have also used the ```-v``` (Verbose flag).
 
+![Screenshot of NMAP results](https://github.com/y1sb0k/THM-Writeups/blob/main/Pickle%20Rick/assets/nmap%20result.png)
 
 As shown in the output, we have two open ports, ssh running on port 22, and http running on port 80.
 

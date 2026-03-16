@@ -1,7 +1,7 @@
 # 🥒 Pickle Rick - TryHackMe Room
 ### 🔗 Link to Room: [Pickle Rick - THM](https://tryhackme.com/room/picklerick)
 
-<ins> ##Intro:</ins>
+##<ins>Intro:</ins>
 
 Welcome to my first ever CTF Writeup! I am writing this writeup to both help develop myself and my skills, whilst hopefully guiding others who are new to the field of Web Application Penetration Testing.
 Please forgive any unusual styling or writing choices I make, as I develop my skillset! 
@@ -85,7 +85,7 @@ Source Code:
 ```
 
 
-### Username: R1ckRul3s
+**Username: R1ckRul3s**
 
 The existence of a Username suggests that somewhere hosted on this server, there is a login page, to find it I am going to use the tool Gobuster to search for hidden directories hosted on the server. I am using the command:
 
@@ -111,6 +111,12 @@ Lets check out that /login.php website to see if we can use Wubbalubbadubdub as 
 
 Nice, it looks like we are in! The page displays a “Rick Portal”, with a command panel, along with some other links along the top menu. Looking through these links, we are greeted by the /denied.php directory, and the message “Only the REAL rick can view this page..”, perhaps there is some privilege escalation required to an administrator account to view these pages.
 
+Details for login:
+```
+Username: R1ckRul3s
+Password: Wubbalubbadubdub
+```
+
 ![Screenshot of denied page](https://github.com/y1sb0k/THM-Writeups/blob/main/Pickle%20Rick/assets/denied.png)
 
 Let's take a look at the command panel, perhaps we can attempt some command injection here. I am going to start with a simple ```ls``` command, to see if we can enumerate any files on the server. 
@@ -128,9 +134,9 @@ Perhaps something simpler would suffice, by putting the file name directly into 
 
 Nice! We have the first flag!
 
-## Flag 1: mr. meeseek hair
+#Flag 1: mr. meeseek hair
 
-<ins> ##Flag Two:</ins>
+##<ins>Flag Two:</ins>
 
 Going back to our Gobuster results, we have the file /clue.txt, let's check that out. 
 
@@ -162,9 +168,9 @@ It worked! Tah-dah!! We finally have our second flag.
 
 ![Screenshot of second flag](https://github.com/y1sb0k/THM-Writeups/blob/main/Pickle%20Rick/assets/flag2.png)
 
-## Flag 2: 1 jerry tear
+#Flag 2: 1 jerry tear
 
-<ins> ##Flag Three:</ins>
+##<ins>Flag Three:</ins>
 
 ***You may notice a change of IP address at this point to 10.130.158.202 - writing and hacking simultaneously is hard and slow work!***
 
@@ -184,7 +190,9 @@ Then by executing ls in the Command Panel, I can see that the file has been copi
 
 And there we have our third flag!
 
-Flag 3: fleeb juice
+#Flag 3: fleeb juice
+
+##<ins>Summary:</ins>
 
 To summarise, our flags are:
 ```
@@ -197,7 +205,7 @@ We have effectively obtained the ingredients list to turn Rick back into a human
 
 I hope you enjoyed my first ever writeup as much as I have enjoyed writing it!
 
-Check out my website for future writeups - https://callumgibl.in/
+*Check out my website for future writeups - https://callumgibl.in/*
 
 Happy Hacking!
 - Callum/y1sb0k

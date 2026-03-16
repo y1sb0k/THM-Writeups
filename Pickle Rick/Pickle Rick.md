@@ -180,11 +180,11 @@ After looking around in some additional source code of the webpage, and trying s
 
 ![Screenshot of root directory](https://github.com/y1sb0k/THM-Writeups/blob/main/Pickle%20Rick/assets/roots%20files.png)
 
-This shows us a file called 3rd.txt - likely our third flag! I am going to attempt to make a copy of the file in our current directory, and recreate the IDOR vulnerability once this file is moved over, I copy the file to the current working directory using the command:
+This shows us a file called ```3rd.txt``` - likely our third flag! I am going to attempt to make a copy of the file in our current directory, and recreate the IDOR vulnerability once this file is moved over, I copy the file to the current working directory using the command:
 
 ```sudo cp /root/3rd.txt ./3rdFlag.txt```
 
-Then by executing ls in the Command Panel, I can see that the file has been copied successfully over to our current working directory, similarly to before, I put this file name into the URL.
+Then by executing ```ls``` in the Command Panel, I can see that the file has been copied successfully over to our current working directory, similarly to before, I put this file name into the URL.
 
 ![Screenshot of third & final flag](https://github.com/y1sb0k/THM-Writeups/blob/main/Pickle%20Rick/assets/3rd%20flag.png)
 

@@ -1,4 +1,4 @@
-# 🥒 Pickle Rick - TryHackMe Room
+#  Pickle RickTryHackMe Room
 ### 🔗 Link to Room: [Pickle Rick - THM](https://tryhackme.com/room/picklerick)
 
 ## <ins>Intro:</ins>

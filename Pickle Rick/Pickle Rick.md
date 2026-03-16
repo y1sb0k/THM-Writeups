@@ -33,10 +33,13 @@ Lets navigate to the website, and have a look around there, looking at our nmap 
 
 Nice, it looks like we have a webpage here, initially looking around and attempting to interact with the webpage doesn’t provide any further details, nor does the content of the webpage.
 
+![Screenshot of webpage](https://github.com/y1sb0k/THM-Writeups/blob/main/Pickle%20Rick/assets/website.png)
 
 However, lets take a look at the source code of the page.
 
-Right there in the html source code, we have a Username, commented out so it does not display on the webpage, website developers/administrators often use this as a weak way to hide credentials or details for other admins or devs for future reference.
+![Screenshot of source code](https://github.com/y1sb0k/THM-Writeups/blob/main/Pickle%20Rick/assets/source%20code.png)
+
+Right there in the HTML source code, we have a Username, commented out so it does not display on the webpage, website developers/administrators often use this as a weak way to hide credentials or details for other admins or devs for future reference.
 
 Source Code:
 ```
@@ -80,7 +83,7 @@ Source Code:
 ```
 
 
-Username: R1ckRul3s
+### Username: R1ckRul3s
 
 The existence of a Username suggests that somewhere hosted on this server, there is a login page, to find it I am going to use the tool Gobuster to search for hidden directories hosted on the server. I am using the command:
 
@@ -88,6 +91,7 @@ The existence of a Username suggests that somewhere hosted on this server, there
 
 Here the dir ```-u``` argument tells Gobuster our target, the ```-w``` argument informs Gobuster of the wordlist to use, and the ```-x``` argument tells it to search for specific file extensions, here ```.php``` ```.html``` and ```.txt files```.
 
+![Screenshot of Gobuster results](https://github.com/y1sb0k/THM-Writeups/blob/main/Pickle%20Rick/assets/gobuster.png)
 
 The output generated has given us 10 directories, we are only interested in the ones that returned with the HTTP status code of 200, as this indicates a successful connection. So we have:
 ```/index.html```
@@ -96,27 +100,37 @@ The output generated has given us 10 directories, we are only interested in the 
 
 Since ```robots.txt``` files usually provide web crawlers and search engines about which pages and directories are permitted to be indexed, this is probably a good place to start, to see if there are any directories that Gobuster didn’t find due to our limited wordlist.
 
+![Screenshot of robots.txt](https://github.com/y1sb0k/THM-Writeups/blob/main/Pickle%20Rick/assets/robots.png)
 
 Interesting, no visible directories or pages here, just the word “Wubbalubbadubdub”, perhaps this is a clue, a password, or simply something to throw us off the scent.
 Lets check out that /login.php website to see if we can use Wubbalubbadubdub as a password.
 
+![Screenshot of login page](https://github.com/y1sb0k/THM-Writeups/blob/main/Pickle%20Rick/assets/login%20page.png)
 
+Nice, it looks like we are in! The page displays a “Rick Portal”, with a command panel, along with some other links along the top menu. Looking through these links, we are greeted by the /denied.php directory, and the message “Only the REAL rick can view this page..”, perhaps there is some privilege escalation required to an administrator account to view these pages.
 
-Nice, it looks like we are in! The page displays a “Rick Portal”, with a command panel, along with some other links along the top menu. Looking through these links, we are greeted by the /denied.php directory, and the message “Only the REAL rick can view this page..”, perhaps there is some privilege escalation required to an administrator account to view these pages..
+![Screenshot of denied page](https://github.com/y1sb0k/THM-Writeups/blob/main/Pickle%20Rick/assets/denied.png)
 
 Let's take a look at the command panel, perhaps we can attempt some command injection here. I am going to start with a simple ```ls``` command, to see if we can enumerate any files on the server. 
 
+![Screenshot of output of ls command](https://github.com/y1sb0k/THM-Writeups/blob/main/Pickle%20Rick/assets/cmd%20panel.png)
+
 This shows a file named ```Sup3rS3cretPickl3Ingred.txt```, this potentially contains a flag, lets have a look at it using ```cat Sup3rS3cretPickl3Ingred.txt```.
+
+![Screenshot of failed cat command](https://github.com/y1sb0k/THM-Writeups/blob/main/Pickle%20Rick/assets/cat%20blocked.png)
 
 Hm it would seem that the use of cat is disabled here, trying other tools such as nano and vim also both show the same error. 
 Perhaps something simpler would suffice, by putting the file name directly into the URL to see if there is an IDOR vulnerability here. 
 
+![Screenshot of first flag](https://github.com/y1sb0k/THM-Writeups/blob/main/Pickle%20Rick/assets/flag1.png)
 
 Nice! We have the first flag!
 
-Flag 1: mr. meeseek hair
+## Flag 1: mr. meeseek hair
 
 Going back to our Gobuster results, we have the file /clue.txt, let's check that out. 
+
+![Screenshot of clue file](https://github.com/y1sb0k/THM-Writeups/blob/main/Pickle%20Rick/assets/clue.png)
 
 Looks like we are going to need to do some more digging around the file directory to see what else we can find here.
 
@@ -124,8 +138,11 @@ Back in the Command Panel, by using ```pwd```, I can see that we are in the ```/
 Note - using the flags ```-la``` allows us to add two flags to the ```ls``` command, ```-l``` for long format which shows us file permissions, owner, and group of the file owner, file size, and the “Last Modified” date.
 This shows us there is a “rick” user and an “ubuntu” user.
 
+![Screenshot of cmd panel showing users](https://github.com/y1sb0k/THM-Writeups/blob/main/Pickle%20Rick/assets/users.png)
 
 Lets then check out what is in the /home/rick directory, to see if the second flag is in there using the command: ```ls -la /home/rick```
+
+![Screenshot of user rick's files](https://github.com/y1sb0k/THM-Writeups/blob/main/Pickle%20Rick/assets/ricks%20files.png)
 
 Okay, looks like we have the file for the second ingredient here, however, the same IDOR vulnerability used before won’t work again here without the file extension. 
 
@@ -139,15 +156,17 @@ This also did not provide an output, doing some further digging I discovered thi
 
 It worked! Tah-dah!! We finally have our second flag.
 
+![Screenshot of second flag](https://github.com/y1sb0k/THM-Writeups/blob/main/Pickle%20Rick/assets/flag2.png)
 
+## Flag 2: 1 jerry tear
 
-Flag 2: 1 jerry tear
-
-You may notice a change of IP address at this point to 10.130.158.202 - writing and hacking simultaneously is hard and slow work!
+***You may notice a change of IP address at this point to 10.130.158.202 - writing and hacking simultaneously is hard and slow work!***
 
 After looking around in some additional source code of the webpage, and trying some further enumeration of the directories through Gobuster and Ffuf, it became apparent that nothing was else obvious was hidden around here, I decided to check in the root directory, to access this directory we must use the sudo command, so I used the command:
 
 ```sudo ls -la /root```
+
+![Screenshot of root directory](https://github.com/y1sb0k/THM-Writeups/blob/main/Pickle%20Rick/assets/roots%20files.png)
 
 This shows us a file called 3rd.txt - likely our third flag! I am going to attempt to make a copy of the file in our current directory, and recreate the IDOR vulnerability once this file is moved over, I copy the file to the current working directory using the command:
 
@@ -155,7 +174,7 @@ This shows us a file called 3rd.txt - likely our third flag! I am going to attem
 
 Then by executing ls in the Command Panel, I can see that the file has been copied successfully over to our current working directory, similarly to before, I put this file name into the URL.
 
-
+![Screenshot of third & final flag](https://github.com/y1sb0k/THM-Writeups/blob/main/Pickle%20Rick/assets/3rd%20flag.png)
 
 And there we have our third flag!
 
@@ -176,3 +195,6 @@ Check out my website for future writeups - https://callumgibl.in/
 
 Happy Hacking!
 - Callum/y1sb0k
+
+
+![Fin!](https://github.com/y1sb0k/THM-Writeups/blob/main/Pickle%20Rick/assets/Evil%20Morty.webp)

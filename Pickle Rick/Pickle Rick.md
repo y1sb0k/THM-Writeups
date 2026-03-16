@@ -25,7 +25,7 @@ Using the Nmap will allow us to take a look at the server, specifically identify
 
 ```nmap -A -v 10.130.170.42```
 
-Here the ```-A``` flag is an Aggressive Scan, which accumulates multiple nmap flags into one argument, namely; ```-sV``` (Services & Version Detection), ```-o``` (OS Detection), ```-sC``` (Default Script Scanning) and a traceroute function. I have also used the ```-v``` (Verbose flag).
+Here the ```-A``` flag is an Aggressive Scan, which accumulates multiple nmap flags into one argument, namely; ```-sV``` (Services & Version Detection), ```-o``` (OS Detection), ```-sC``` (Default Script Scanning) and a traceroute function. I have also used the ```-v``` (Verbose) f;ag.
 
 ![Screenshot of NMAP results](https://github.com/y1sb0k/THM-Writeups/blob/main/Pickle%20Rick/assets/nmap%20result.png)
 
